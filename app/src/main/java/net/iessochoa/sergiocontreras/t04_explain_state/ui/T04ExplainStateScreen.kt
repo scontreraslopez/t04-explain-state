@@ -1,10 +1,15 @@
 package net.iessochoa.sergiocontreras.t04_explain_state.ui
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import net.iessochoa.sergiocontreras.t04_explain_state.ui.theme.T04explainstateTheme
 
 /**
@@ -18,7 +23,13 @@ import net.iessochoa.sergiocontreras.t04_explain_state.ui.theme.T04explainstateT
 
 @Composable
 fun T04ExplainStateScreen(modifier: Modifier = Modifier) {
-    Saludo(modifier)
+    Column(
+        modifier = modifier
+    ) {
+        Saludo()
+        Spacer(modifier = Modifier.padding(32.dp))
+        ContadorAgua()
+    }
 }
 
 @Composable
@@ -38,5 +49,16 @@ fun Saludo(modifier: Modifier = Modifier) {
 fun T04ExplainStateScreenPreview() {
     T04explainstateTheme {
         Saludo()
+    }
+}
+
+@Composable
+fun ContadorAgua(modifier: Modifier = Modifier) {
+    var count = 0
+    Column(modifier = modifier.padding(16.dp)) {
+        Text("Te has bebido $count vasos.")
+        Button(onClick = { count++ }) {
+            Text("Añadir uno")
+        }
     }
 }
