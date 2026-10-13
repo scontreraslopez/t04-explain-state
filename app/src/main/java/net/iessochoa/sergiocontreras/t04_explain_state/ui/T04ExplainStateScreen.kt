@@ -1,5 +1,6 @@
 package net.iessochoa.sergiocontreras.t04_explain_state.ui
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -57,7 +58,10 @@ fun ContadorAgua(modifier: Modifier = Modifier) {
     var count = 0
     Column(modifier = modifier.padding(16.dp)) {
         Text("Te has bebido $count vasos.")
-        Button(onClick = { count++ }) {
+        Button(onClick = {
+            count++
+            Log.d("ContadorAgua", "Botón pulsado: count = $count")
+        }) {
             Text("Añadir uno")
         }
     }
