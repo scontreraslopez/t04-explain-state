@@ -10,6 +10,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -39,9 +40,10 @@ fun T04ExplainStateScreen(modifier: Modifier = Modifier) {
 
 @Composable
 fun Saludo(modifier: Modifier = Modifier) {
+    var nombre by remember { mutableStateOf("") }
     TextField(
-        value = "",
-        onValueChange = { },
+        value = nombre,
+        onValueChange = { nombre = it },
         label = { Text("Nombre") },
         modifier = modifier
     )
